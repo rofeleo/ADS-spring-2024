@@ -1,8 +1,8 @@
 from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
-from change_number_system import *
-from egyptian_number_system import *
+from main import *
+from prak import *
 
 
 def calculate():
@@ -12,8 +12,10 @@ def calculate():
     num2 = str(win_num2.get())
     ss_ans = int(win_ss_ans.get())
 
-    if not correct(num1, ss1) or not correct(num2, ss2) or ss_ans > 17:
-        result = "Ошибка"
+    #result = "Ответ"
+    if not correct(num1, ss1) or not correct(num2, ss2) or ss_ans > 17 or num2 == "0":
+        #result = "Ошибка"
+        messagebox.showinfo('Результат', f'Ошибка')
     else:
         if ss1 == 17:
             num1_dec = egyptian_converter_to_dec(num1)
@@ -38,7 +40,7 @@ def calculate():
             result = dec_to_other(result, ss_ans)
         else:
             result = dec_converter_to_egyptian(result)
-    messagebox.showinfo('Результат', f'Ответ = {result}')
+        messagebox.showinfo('Результат', f'Ответ = {result}')
 
 
 window = Tk()
