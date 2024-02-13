@@ -15,6 +15,7 @@ def to_dec(num: str, radix: int) -> int:
 
 
 def dec_to_other(num: float, radix: int) -> str:
+    num = float(num)
     str_num = str(num)
     fractional_part, whole_part = math.modf(num)
     res = 0
@@ -30,6 +31,9 @@ def dec_to_other(num: float, radix: int) -> str:
 
     ans = ans[::-1]
 
+    if num.is_integer():
+        return ans
+
     ans += '.'
 
     for i in range(10):
@@ -39,4 +43,3 @@ def dec_to_other(num: float, radix: int) -> str:
         fractional_part = tmp[0]
 
     return ans
-
