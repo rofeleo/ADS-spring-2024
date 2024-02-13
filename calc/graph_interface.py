@@ -52,17 +52,36 @@ frame.pack(expand=True)
 
 # I - черта, ^ - пятка, P - петля веревки
 # ? - кувшинка, ! - палец, J - жаба(личинка),H - человек
-note = tk.Label(frame, text="Используйте системы счисления со 2-й по 16-ю\n\n"
-                            "17 сс считается за египетскую:\n"
-                            "I     1                 черта\n"
-                            "^    10               пятка\n"
-                            "P   100             петля веревки\n"
-                            "?    1 000         кувшинка\n"
-                            "!     10 000       палец\n"
-                            "J    100 000     жаба(личинка)\n"
-                            "H   1 000 000  человек",
-                justify='left', font=("Arial", 12))
-note.grid(row=0, column=1)
+note0 = tk.Label(frame, text="Используйте системы счисления со 2-й по 16-ю\n"
+                             "17 сс считается за египетскую",
+                 justify='left', font=("Arial", 12))
+note1 = tk.Label(frame, text="\n\n"
+                             "I\n"
+                             "^\n"
+                             "P\n"
+                             "?\n"
+                             "!\n"
+                             "J\n"
+                             "H\n",
+                 font=("Arial", 12))
+note2 = tk.Label(frame, text="Египетская сс:\n\n1\n"
+                             "10\n"
+                             "100\n"
+                             "1 000\n"
+                             "10 000\n"
+                             "100 000\n"
+                             "1 000 000\n", justify='left', font=("Arial", 12))
+note3 = tk.Label(frame, text="\n\nчерта\n"
+                             "пятка\n"
+                             "петля веревки\n"
+                             "кувшинка\n"
+                             "палец\n"
+                             "жаба(личинка)\n"
+                             "человек\n", justify='left', font=("Arial", 12))
+note0.grid(row=0, column=0)
+note1.grid(row=0, column=1)
+note2.grid(row=0, column=2)
+note3.grid(row=0, column=3)
 
 num1 = Label(frame, text="Первое число:", font=("Arial", 12))
 num2 = Label(frame, text="Второе число:", font=("Arial", 12))
