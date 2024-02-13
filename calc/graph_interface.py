@@ -1,7 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
-from tkinter import ttk
 from main import *
 from prak import *
 
@@ -13,12 +12,17 @@ def calculate():
     num2 = str(win_num2.get())
     ss_ans = int(win_ss_ans.get())
 
-    is_true = correct(num1, ss1)
-    if is_true == False:
+    if not correct(num1, ss1) or not correct(num2, ss2) or ss_ans > 17:
         result = "Ошибка"
     else:
-        num1_dec = to_dec(num1, ss1)
-        num2_dec = to_dec(num2, ss2)
+        if ss1 == 17:
+            num1_dec = egyptian_converter_to_dec(num1)
+        else:
+            num1_dec = to_dec(num1, ss1)
+        if ss2 == 17:
+            num2_dec = egyptian_converter_to_dec(num2)
+        else:
+            num2_dec = to_dec(num2, ss2)
 
         operation = operation_var.get()
         if operation == "+":
@@ -29,7 +33,11 @@ def calculate():
             result = num1_dec * num2_dec
         elif operation == "/":
             result = num1_dec / num2_dec
-        result = dec_to_other(result, ss_ans)
+
+        if ss_ans != 17:
+            result = dec_to_other(result, ss_ans)
+        else:
+            result = dec_converter_to_egyptian(result)
     messagebox.showinfo('Результат', f'Ответ = {result}')
 
 
@@ -42,15 +50,15 @@ frame.pack(expand=True)
 
 # I - черта, ^ - пятка, P - петля веревки
 # ? - кувшинка, ! - палец, J - жаба(личинка),H - человек
-note = tk.Label(frame, text="Используйте системы счисления со 2-й по 16-ю\n"
+note = tk.Label(frame, text="Используйте системы счисления со 2-й по 16-ю\n\n"
                             "17 сс считается за египетскую:\n"
-                            "I - черта                  1\n"
-                            "^ - пятка                 10\n"
-                            "P - петля веревки 100\n"
-                            "? - кувшинка          1 000\n"
-                            "! - палец                  10 000\n"
-                            "J - жаба(личинка) 100 000\n"
-                            "H - человек            1 000 000",
+                            "I     1               черта\n"
+                            "^   10              пятка\n"
+                            "P   100            петля веревки\n"
+                            "?    1 000         кувшинка\n"
+                            "!     10 000       палец\n"
+                            "J     100 000    жаба(личинка)\n"
+                            "H   1 000 000  человек",
                 justify='left')
 note.grid(row=0, column=1)
 
