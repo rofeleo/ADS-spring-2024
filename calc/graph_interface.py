@@ -1,8 +1,8 @@
 from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
-from main import *
-from prak import *
+from change_number_system import *
+from egyptian_number_system import *
 
 
 def calculate():
