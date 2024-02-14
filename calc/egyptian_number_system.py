@@ -1,9 +1,9 @@
 # I - черта, ^ - пятка, P - петля веревки
 # ? - кувшинка, ! - палец, J - жаба(личинка),H - человек
 
-words_values = {'I': 1, '^': 10, 'P': 100, '?': 1000, '!': 10000, 'J': 100000, 'H': 1000000}
+words_values = {'I': 1, '^': 10, 'P': 100, '?': 1000, '!': 10000, 'J': 100000, 'H': 1000000} #Словарь египт. СС(слово : значение)
 
-#перевод из египт. СС в десятичную
+#перевод из египт. СС в десятичную CC
 def egyptian_converter_to_dec(word: str):
     result = 0
 
@@ -13,7 +13,7 @@ def egyptian_converter_to_dec(word: str):
 
     return result
 
-#перевод из десятичной в египт. СС
+#перевод из десятичной CC в египт. СС
 def dec_converter_to_egyptian(num: int):
     result = ''
     str_number = str(num)
@@ -37,12 +37,12 @@ def dec_converter_to_egyptian(num: int):
         else:
             return 'Ошибка'
 
-#проверка для всех СС
-alph = '0123456789ABCDEFI^P?!JH'
+#Проверка для всех СС(с 2 по 16, египетс.) на то, что введено число под нужную(выбранную) СС
+alph = '0123456789ABCDEFI^P?!JH' #алфавит наших СС
 
 def correct(num : str, radix : int):
     is_correct = True
-    if radix <= 16:
+    if radix <= 16: #Проверка на то, что СС с 2 по 16
         for i in range(len(num)):
             temp = False
             for j in range(radix):
@@ -51,7 +51,7 @@ def correct(num : str, radix : int):
                     break
             if temp == False:
                 is_correct = False
-    elif radix == 17:
+    elif radix == 17: #Проверка, если СС - египетская
         for i in range(len(num)):
             temp = False
             for j in range(16, 23):
