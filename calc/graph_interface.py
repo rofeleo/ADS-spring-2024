@@ -4,7 +4,7 @@ import tkinter as tk
 from change_number_system import *
 from egyptian_number_system import *
 
-
+#функция, принимающая значения и выдающая ответ
 def calculate():
     ss1 = int(win_ss1.get())
     num1 = str(win_num1.get())
@@ -42,7 +42,7 @@ def calculate():
             result = dec_converter_to_egyptian(result)
         messagebox.showinfo('Результат', f'Ответ = {result}')
 
-
+#создание графического интерфейса
 window = Tk()
 window.title('Калькулятор')
 window.geometry('900x400')
@@ -50,8 +50,6 @@ window.geometry('900x400')
 frame = Frame(window, padx=10, pady=10)
 frame.pack(expand=True)
 
-# I - черта, ^ - пятка, P - петля веревки
-# ? - кувшинка, ! - палец, J - жаба(личинка),H - человек
 note0 = tk.Label(frame, text="Используйте системы счисления со 2-й по 16-ю\n"
                              "17 сс считается за египетскую",
                  justify='left', font=("Arial", 12))
@@ -104,7 +102,6 @@ radio_var2 = tk.StringVar(value=10)
 operation_var = tk.StringVar()
 
 operation_option = tk.OptionMenu(frame, operation_var, "+", "-", "*", "/")
-# operation_option.config(width=10)
 operation_option.config(bg='lightgrey')
 operation_option.grid(row=4, column=1)
 
