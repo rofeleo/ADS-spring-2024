@@ -1,3 +1,5 @@
+#Работу сделали: Анашкин Илья Александрович, Ванина Дарья Алексеевна, Чекунова Марьяна Михайловна
+#Группа: БПМ-22-2
 from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
