@@ -15,3 +15,11 @@ def permut(cnt):
   for i in itertools.permutations(nums, len(nums)):
     ans.add(i)
   return ans
+
+def combinations_rep(n, k):
+  ans = set()
+  for i in itertools.combinations_with_replacement(range(1, n + 1), k):
+    ans.add(i)
+  return ans
+
+  
