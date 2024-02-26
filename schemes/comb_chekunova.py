@@ -4,10 +4,10 @@ from itertools import permutations
 #размещения с повторениями
 def placements_with_repetitions(n, k):
   ans = set()
-  elements = [str(i) for i in range(1, n+1)]
+  elements = [i for i in range(1, n+1)]
   placements = itertools.product(elements, repeat = k)
   for placement in placements:
-    ans.add(int((''.join(placement))))
+    ans.add(placement)
   return ans
 
 #размещения без повторений
@@ -17,4 +17,13 @@ def placements_without_repetitions(n, k):
   unique_permutations = set(permutations(arr, k))
   for perm in unique_permutations:
     ans.add(perm)
+  return(ans)
+
+def combinations(n, k):
+  ans = set()
+  for i in itertools.combinations(range(1, n + 1), k):
+    ans.add(i)
   return ans
+
+
+
