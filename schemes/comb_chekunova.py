@@ -17,4 +17,4 @@ def placements_without_repetitions(n, k):
   unique_permutations = set(permutations(arr, k))
   for perm in unique_permutations:
     ans.add(perm)
-  return(ans)
+  return ans
